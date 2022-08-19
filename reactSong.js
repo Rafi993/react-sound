@@ -1,26 +1,17 @@
 const reactReconciler = require("react-reconciler");
-const scribble = require("./node_modules/scribbletune/dist");
 const path = require("path");
 const { exec } = require("child_process");
 const flatten = require("lodash.flatten");
+const fs = require("fs");
+const Midi = require("jsmidgen");
 
-// const getTone = (ast) => {
-//   if (ast.children.length > 0) {
-//     const { children, ...parent } = ast;
-//     return flatten([parent, ...children.map((child) => getTone(child))]);
-//   }
-
-//   return ast;
-// };
-
-// const getTone = ()
-
-const play = (file) => {
-  try {
-    exec(`open ${file}`, () => {});
-  } catch (err) {
-    console.log(err);
+const getTone = (ast) => {
+  if (ast.children.length > 0) {
+    const { children, ...parent } = ast;
+    return flatten([parent, ...children.map((child) => getTone(child))]);
   }
+
+  return ast;
 };
 
 const reconciler = reactReconciler({
@@ -32,21 +23,11 @@ const reconciler = reactReconciler({
     hostContext,
     internalInstaneHandle
   ) {
-    if (type === "span") {
-      return {
-        file: "1.wav",
-        children: [],
-        delay: 500,
-      };
-    }
-
-    if (type === "div") {
-      return {
-        file: "2.wav",
-        children: [],
-        delay: 200,
-      };
-    }
+    return {
+      type: type.toLowerCase(),
+      children: [],
+      pitch: 64,
+    };
   },
   createTextInstance(
     text,
@@ -55,8 +36,8 @@ const reconciler = reactReconciler({
     internalInstaneHandle
   ) {
     return {
-      textToSpeechTrue: true,
-      text,
+      node: "c4",
+      children: [],
     };
   },
   appendInitialChild(parent, child) {
@@ -93,25 +74,21 @@ const reconciler = reactReconciler({
     childSet.push(child);
   },
   finalizeContainerChildren() {},
-  replaceContainerChildren(container, newChildren) {
-    // const c = scribble.clip({
-    //   notes: "C4",
-    //   pattern: "x",
-    // });
-    // scribble.midi(c, "c");
-    // play("c.mid");
-    // getTone(newChildren[0]);
-    // getTone(newChildren[0]).map((node, index) => {
-    //   if (node.textToSpeechTrue) {
-    //     // await speak(node.text);
-    //   } else {
-    //     setTimeout(() => play(path.join("wav", node.file)), node.delay * index);
-    //   }
-    // });
+  replaceContainerChildren(file, newChildren) {
+    const midiFile = new Midi.File();
+    const track = new Midi.Track();
+    midiFile.addTrack(track);
+
+    getTone(newChildren[0]).forEach((node, index) => {
+      track.addNote(0, node.type, node.pitch);
+    });
+
+    fs.writeFileSync(file, midiFile.toBytes(), "binary");
+    exec(`open ${file}`, () => {});
   },
 });
 
-exports.render = (app) => {
-  const container = reconciler.createContainer({}, false, false);
+exports.render = (app, file) => {
+  const container = reconciler.createContainer(file, false, false);
   reconciler.updateContainer(app, container, null, null);
 };

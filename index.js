@@ -4,4 +4,4 @@ const importJsx = require("import-jsx");
 
 const ui = importJsx("./ui");
 
-render(React.createElement(ui));
+render(React.createElement(ui), "test.midi");
