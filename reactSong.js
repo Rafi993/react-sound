@@ -1,22 +1,23 @@
 const reactReconciler = require("react-reconciler");
-const Tone = require("tone");
+const scribble = require("./node_modules/scribbletune/dist");
 const path = require("path");
 const { exec } = require("child_process");
 const flatten = require("lodash.flatten");
 
-const getTone = (ast) => {
-  if (ast.children.length > 0) {
-    const { children, ...parent } = ast;
-    return flatten([parent, ...children.map((child) => getTone(child))]);
-  }
+// const getTone = (ast) => {
+//   if (ast.children.length > 0) {
+//     const { children, ...parent } = ast;
+//     return flatten([parent, ...children.map((child) => getTone(child))]);
+//   }
 
-  return ast;
-};
+//   return ast;
+// };
+
+// const getTone = ()
 
 const play = (file) => {
-  console.log(file);
   try {
-    exec(`afplay ${file}`, () => {});
+    exec(`open ${file}`, () => {});
   } catch (err) {
     console.log(err);
   }
@@ -93,13 +94,20 @@ const reconciler = reactReconciler({
   },
   finalizeContainerChildren() {},
   replaceContainerChildren(container, newChildren) {
-    getTone(newChildren[0]).map((node, index) => {
-      if (node.textToSpeechTrue) {
-        // await speak(node.text);
-      } else {
-        setTimeout(() => play(path.join("wav", node.file)), node.delay * index);
-      }
-    });
+    // const c = scribble.clip({
+    //   notes: "C4",
+    //   pattern: "x",
+    // });
+    // scribble.midi(c, "c");
+    // play("c.mid");
+    // getTone(newChildren[0]);
+    // getTone(newChildren[0]).map((node, index) => {
+    //   if (node.textToSpeechTrue) {
+    //     // await speak(node.text);
+    //   } else {
+    //     setTimeout(() => play(path.join("wav", node.file)), node.delay * index);
+    //   }
+    // });
   },
 });
 

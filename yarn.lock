@@ -1239,6 +1239,11 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
+harmonics@^1.0.8:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/harmonics/-/harmonics-1.1.0.tgz#fff7dd68944b88e5c1802d59622acaf65308f57a"
+  integrity sha512-LHSh7D6gn75NxvGog5qkdvBRweQVVNcncQhRgO/MW6pg749qZ78Q5EJV9xjr9Emqm/gIDQRdQIMo1xsrwruSQQ==
+
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
@@ -1313,7 +1318,7 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==
 
-jsmidgen@^0.1.5:
+jsmidgen@^0.1.5, jsmidgen@~0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/jsmidgen/-/jsmidgen-0.1.5.tgz#ad0afd6375eb12f51064025393ce3baec380585d"
   integrity sha512-AcfpCk5gtBkCeWed8eYbzMa/B/AYLXgJfLb+j7C46wEUrwRvTQw/GvdT9daJFoFRCJCuf598wnPeyB2TstpBxA==
@@ -1541,6 +1546,14 @@ scheduler@^0.23.0:
   integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
   dependencies:
     loose-envify "^1.1.0"
+
+scribbletune@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/scribbletune/-/scribbletune-5.0.0.tgz#726ef7c906473a236d0ceedea8606379922ee9ce"
+  integrity sha512-Ujx/yr9ORFsTAS3hcf3pnV9eHrqbcjC20aJ2plHUuBy2DLApLw/heMaQtUPLdrDXJb9xttC2jpTIKGvx9yOs2A==
+  dependencies:
+    harmonics "^1.0.8"
+    jsmidgen "~0.1.5"
 
 semver@7.0.0:
   version "7.0.0"
