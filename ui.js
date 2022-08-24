@@ -2,18 +2,22 @@
 const React = require("react");
 
 const App = () => (
-  <c4>
-    <d4 />
-    <d4 />
-    <d4 />
-    <e4 />
-    <e4 />
-    <e4 />
-    <e4 />
-    <c5 />
-    <c5 />
-    <c5 />
-  </c4>
+  <>
+    <track repeat={3}>
+      <node name="b2" />
+      <node name="b2" />
+      <note name="b2" />
+      <note name="b2" />
+      <note name="b2" />
+      <note name="b2" />
+      <note name="c3" />
+      <harmonics name="c4 bebop" />
+    </track>
+
+    <track>
+      <harmonics name="b4 major" />
+    </track>
+  </>
 );
 
 module.exports = App;

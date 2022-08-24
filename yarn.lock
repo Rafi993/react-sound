@@ -913,7 +913,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.18.6"
     "@babel/plugin-transform-react-pure-annotations" "^7.18.6"
 
-"@babel/runtime@^7.18.9", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.8.4":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
   integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
@@ -1000,14 +1000,6 @@ ansi-styles@^3.2.1:
   integrity sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==
   dependencies:
     color-convert "^1.9.0"
-
-automation-events@^4.0.20:
-  version "4.0.20"
-  resolved "https://registry.yarnpkg.com/automation-events/-/automation-events-4.0.20.tgz#a103d322db98b9999d04b44a3cf276539a88cc37"
-  integrity sha512-ALTOLrB4vTyXOsLPia8OKM1qZKtlsGC+3VDe3jcCGUpvgKTbqlzvaJU3HqDhU6jlVEMMBqT01XZv3K/3Z5g29w==
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-    tslib "^2.4.0"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -1115,11 +1107,6 @@ color-name@1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
   integrity sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==
-
-"colors@>= 0.3.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
-  integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -1239,7 +1226,7 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-harmonics@^1.0.8:
+harmonics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/harmonics/-/harmonics-1.1.0.tgz#fff7dd68944b88e5c1802d59622acaf65308f57a"
   integrity sha512-LHSh7D6gn75NxvGog5qkdvBRweQVVNcncQhRgO/MW6pg749qZ78Q5EJV9xjr9Emqm/gIDQRdQIMo1xsrwruSQQ==
@@ -1318,7 +1305,7 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==
 
-jsmidgen@^0.1.5, jsmidgen@~0.1.5:
+jsmidgen@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/jsmidgen/-/jsmidgen-0.1.5.tgz#ad0afd6375eb12f51064025393ce3baec380585d"
   integrity sha512-AcfpCk5gtBkCeWed8eYbzMa/B/AYLXgJfLb+j7C46wEUrwRvTQw/GvdT9daJFoFRCJCuf598wnPeyB2TstpBxA==
@@ -1339,11 +1326,6 @@ lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
-
-lodash.flatten@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
-  integrity sha512-C5N2Z3DgnnKr0LOpv/hKCgKdb7ZZwafIrsesve6lmzvZIRZRGaZ/l6Q8+2W7NaT+ZwO3fFlSCzCzrDCFdJfZ4g==
 
 loose-envify@^1.1.0:
   version "1.4.0"
@@ -1444,13 +1426,6 @@ pkg-dir@^4.1.0:
   dependencies:
     find-up "^4.0.0"
 
-play@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/play/-/play-0.5.0.tgz#f814e67163de29de7b9d9e905df8389ae4ea6347"
-  integrity sha512-R+/X709543S7W3GXDpfN+W7sJwWPk+h4pnKC/S1/hlzUCnpUG0buoSRnCSJLBv5ADBIg845F7qvNxHvw6nEgLA==
-  dependencies:
-    colors ">= 0.3.0"
-
 react-reconciler@^0.29.0:
   version "0.29.0"
   resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.29.0.tgz#ee769bd362915076753f3845822f2d1046603de7"
@@ -1547,14 +1522,6 @@ scheduler@^0.23.0:
   dependencies:
     loose-envify "^1.1.0"
 
-scribbletune@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/scribbletune/-/scribbletune-5.0.0.tgz#726ef7c906473a236d0ceedea8606379922ee9ce"
-  integrity sha512-Ujx/yr9ORFsTAS3hcf3pnV9eHrqbcjC20aJ2plHUuBy2DLApLw/heMaQtUPLdrDXJb9xttC2jpTIKGvx9yOs2A==
-  dependencies:
-    harmonics "^1.0.8"
-    jsmidgen "~0.1.5"
-
 semver@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
@@ -1564,15 +1531,6 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
-
-standardized-audio-context@^25.1.8:
-  version "25.3.29"
-  resolved "https://registry.yarnpkg.com/standardized-audio-context/-/standardized-audio-context-25.3.29.tgz#4f1948a3903323bb831b8c7129bed9320e500be5"
-  integrity sha512-5RqrvuaphiR3W2t8nd8PRBhQKXTTf0gHu8I0BukH3A11C9ZHQQmeE9WywBe68TcYBj9DCm42db8OWTw1PluLUA==
-  dependencies:
-    "@babel/runtime" "^7.18.9"
-    automation-events "^4.0.20"
-    tslib "^2.4.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
@@ -1590,19 +1548,6 @@ to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==
-
-tone@^14.7.77:
-  version "14.7.77"
-  resolved "https://registry.yarnpkg.com/tone/-/tone-14.7.77.tgz#12a2a9f033952ccdb552275a6384ca5d36d4b5ed"
-  integrity sha512-tCfK73IkLHyzoKUvGq47gyDyxiKLFvKiVCOobynGgBB9Dl0NkxTM2p+eRJXyCYrjJwy9Y0XCMqD3uOYsYt2Fdg==
-  dependencies:
-    standardized-audio-context "^25.1.8"
-    tslib "^2.0.1"
-
-tslib@^2.0.1, tslib@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"

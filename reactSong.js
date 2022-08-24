@@ -1,18 +1,8 @@
 const reactReconciler = require("react-reconciler");
-const path = require("path");
 const { exec } = require("child_process");
-const flatten = require("lodash.flatten");
 const fs = require("fs");
 const Midi = require("jsmidgen");
-
-const getTone = (ast) => {
-  if (ast.children.length > 0) {
-    const { children, ...parent } = ast;
-    return flatten([parent, ...children.map((child) => getTone(child))]);
-  }
-
-  return ast;
-};
+const harmonics = require("harmonics");
 
 const reconciler = reactReconciler({
   supportsPersistence: true,
@@ -23,11 +13,34 @@ const reconciler = reactReconciler({
     hostContext,
     internalInstaneHandle
   ) {
-    return {
+    const node = {
       type: type.toLowerCase(),
       children: [],
-      pitch: 64,
+      repeat: 1,
+      delay: 0,
     };
+
+    console.log(type);
+
+    if (props.pitch) {
+      node.pitch = props.pitch;
+    } else if (type !== "track") {
+      node.pitch = 64;
+    }
+
+    if (props.repeat) {
+      node.repeat = props.repeat;
+    }
+
+    if (props.name) {
+      node.name = props.name;
+    }
+
+    if (props.delay) {
+      node.delay = props.delay;
+    }
+
+    return node;
   },
   createTextInstance(
     text,
@@ -76,11 +89,23 @@ const reconciler = reactReconciler({
   finalizeContainerChildren() {},
   replaceContainerChildren(file, newChildren) {
     const midiFile = new Midi.File();
-    const track = new Midi.Track();
-    midiFile.addTrack(track);
 
-    getTone(newChildren[0]).forEach((node, index) => {
-      track.addNote(0, node.type, node.pitch);
+    newChildren.forEach((trackNode) => {
+      const track = new Midi.Track();
+      midiFile.addTrack(track);
+
+      for (let i = 0; i < trackNode.repeat; i++) {
+        trackNode.children.forEach((node) => {
+          if (node.type === "harmonics") {
+            harmonics.scale(node.name).forEach((chord) => {
+              track.addNote(0, chord, node.pitch, chord.delay);
+            });
+          } else if (node.type === "note") {
+            track.setInstrument();
+            track.addNote(0, node.name, node.pitch, node.delay);
+          }
+        });
+      }
     });
 
     fs.writeFileSync(file, midiFile.toBytes(), "binary");
