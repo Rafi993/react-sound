@@ -4,6 +4,12 @@ const fs = require("fs");
 const Midi = require("jsmidgen");
 const harmonics = require("harmonics");
 
+const instruments = {
+  organ: 0x13,
+  electronicGuitar: 0x22,
+  piano: 0x00,
+};
+
 const reconciler = reactReconciler({
   supportsPersistence: true,
   createInstance(
@@ -18,14 +24,17 @@ const reconciler = reactReconciler({
       children: [],
       repeat: 1,
       delay: 0,
+      channel: 0,
     };
-
-    console.log(type);
 
     if (props.pitch) {
       node.pitch = props.pitch;
     } else if (type !== "track") {
       node.pitch = 64;
+    }
+
+    if (props.instrument) {
+      node.instrument = props.instrument;
     }
 
     if (props.repeat) {
@@ -38,6 +47,10 @@ const reconciler = reactReconciler({
 
     if (props.delay) {
       node.delay = props.delay;
+    }
+
+    if (props.channel) {
+      node.channel = props.channel;
     }
 
     return node;
@@ -92,6 +105,11 @@ const reconciler = reactReconciler({
 
     newChildren.forEach((trackNode) => {
       const track = new Midi.Track();
+
+      if (trackNode.instrument) {
+        track.setInstrument(0, instruments[trackNode.instrument]);
+      }
+
       midiFile.addTrack(track);
 
       for (let i = 0; i < trackNode.repeat; i++) {
@@ -101,8 +119,7 @@ const reconciler = reactReconciler({
               track.addNote(0, chord, node.pitch, chord.delay);
             });
           } else if (node.type === "note") {
-            track.setInstrument();
-            track.addNote(0, node.name, node.pitch, node.delay);
+            track.addNote(node.channel, node.name, node.pitch, node.delay);
           }
         });
       }
