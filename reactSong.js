@@ -119,7 +119,7 @@ const reconciler = reactReconciler({
         trackNode.children.forEach((node) => {
           if (node.type === "harmonics") {
             harmonics.scale(node.name).forEach((chord) => {
-              track.addNote(0, chord, node.pitch, chord.delay);
+              track.addNote(trackNode.channel, chord, node.pitch, chord.delay);
             });
           } else if (node.type === "note") {
             track.addNote(trackNode.channel, node.name, node.pitch, node.delay);
