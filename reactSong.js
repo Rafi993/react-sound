@@ -107,7 +107,10 @@ const reconciler = reactReconciler({
       const track = new Midi.Track();
 
       if (trackNode.instrument) {
-        track.setInstrument(0, instruments[trackNode.instrument]);
+        track.setInstrument(
+          trackNode.channel,
+          instruments[trackNode.instrument]
+        );
       }
 
       midiFile.addTrack(track);
@@ -119,7 +122,7 @@ const reconciler = reactReconciler({
               track.addNote(0, chord, node.pitch, chord.delay);
             });
           } else if (node.type === "note") {
-            track.addNote(node.channel, node.name, node.pitch, node.delay);
+            track.addNote(trackNode.channel, node.name, node.pitch, node.delay);
           }
         });
       }
